@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exposé-Generator — GrAIt Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23080808'/><text y='.9em' font-size='72' font-family='sans-serif' fill='%238B5CF6'>G</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --bg-card: #111111;
+      --bg-input: #161616;
+      --border: #222222;
+      --border-focus: #8B5CF6;
+      --purple: #8B5CF6;
+      --purple-light: #A78BFA;
+      --purple-dim: rgba(139,92,246,0.12);
+      --text: #F5F5F5;
+      --text-muted: #888888;
+      --text-dim: #555555;
+      --green: #22C55E;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    .logo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 20px; color: var(--text); text-decoration: none; }
+    .logo span { color: var(--purple); }
+    .nav-back { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--purple-dim);
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: var(--purple-light);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; }
+    .hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--purple); }
+    .hero p { color: var(--text-muted); font-size: 16px; max-width: 520px; margin: 0 auto; }
+
+    /* MAIN LAYOUT */
+    .main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .main { grid-template-columns: 1fr; }
+    }
+
+    /* CARD */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-title-num {
+      width: 26px; height: 26px;
+      background: var(--purple-dim);
+      border: 1px solid rgba(139,92,246,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      color: var(--purple-light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* FORM */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-group:last-child { margin-bottom: 0; }
+    label { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    input, textarea, select {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      padding: 10px 14px;
+      width: 100%;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: var(--text-dim); }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+    }
+    textarea { resize: vertical; min-height: 88px; }
+    select { cursor: pointer; }
+    select option { background: #1a1a1a; }
+
+    .btn {
+      width: 100%;
+      padding: 14px 24px;
+      border-radius: var(--radius-sm);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: var(--purple);
+      color: #fff;
+    }
+    .btn-primary:hover:not(:disabled) { background: #7C3AED; transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* OUTPUT CARD */
+    .output-card { position: sticky; top: 88px; }
+
+    .output-placeholder {
+      text-align: center;
+      padding: 48px 24px;
+      color: var(--text-dim);
+    }
+    .output-placeholder-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+    .output-placeholder p { font-size: 14px; }
+
+    /* LOADING */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .loading.active { display: block; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--purple);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading p { color: var(--text-muted); font-size: 14px; }
+    .loading-steps { margin-top: 12px; font-size: 12px; color: var(--text-dim); }
+
+    /* RESULT */
+    .result { display: none; }
+    .result.active { display: block; }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .result-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--green); font-weight: 500;
+    }
+    .result-badge::before { content: ''; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+
+    .result-time { font-size: 12px; color: var(--text-dim); }
+
+    .result-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .btn-copy, .btn-reset {
+      flex: 1;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .btn-copy { background: var(--purple-dim); color: var(--purple-light); border-color: rgba(139,92,246,0.3); }
+    .btn-copy:hover { background: rgba(139,92,246,0.2); }
+    .btn-copy.copied { background: rgba(34,197,94,0.1); color: var(--green); border-color: rgba(34,197,94,0.3); }
+    .btn-reset { background: transparent; color: var(--text-muted); }
+    .btn-reset:hover { background: var(--bg-input); color: var(--text); }
+
+    /* TIMER */
+    .timer-bar {
+      height: 2px;
+      background: var(--border);
+      border-radius: 1px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .timer-fill {
+      height: 100%;
+      background: var(--purple);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* ERROR */
+    .error-msg {
+      display: none;
+      background: rgba(239,68,68,0.08);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #F87171;
+      margin-top: 16px;
+    }
+    .error-msg.active { display: block; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Gr<span>AI</span>t Systems</a>
+  <a href="index.html" class="nav-back">← Zurück zur Website</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">
+    <span class="badge-dot"></span>
+    KI-Demo · Exposé-Generator
+  </div>
+  <h1>Professionelles Exposé in <span>unter 60 Sekunden</span></h1>
+  <p>Objektdaten eingeben — KI schreibt das vollständige Exposé. Kopierbereit für ImmoScout, Immowelt und deine Website.</p>
+</div>
+
+<div class="main">
+
+  <!-- FORMULAR -->
+  <div class="card">
+    <div class="card-title">
+      <span class="card-title-num">1</span>
+      Objektdaten eingeben
+    </div>
+
+    <form id="exposeForm">
+      <div class="form-group">
+        <label>Objekttyp</label>
+        <select name="objekttyp" required>
+          <option value="" disabled selected>Bitte wählen…</option>
+          <option>Eigentumswohnung</option>
+          <option>Einfamilienhaus</option>
+          <option>Mehrfamilienhaus</option>
+          <option>Doppelhaushälfte</option>
+          <option>Reihenhaus</option>
+          <option>Penthouse</option>
+          <option>Gewerbeimmobilie</option>
+          <option>Grundstück</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Adresse</label>
+        <input name="adresse" type="text" placeholder="z.B. Musterstraße 12, 80331 München" required />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Zimmer</label>
+          <input name="zimmer" type="text" placeholder="z.B. 3" />
+        </div>
+        <div class="form-group">
+          <label>Fläche (m²)</label>
+          <input name="flaeche" type="text" placeholder="z.B. 85" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preis (€)</label>
+          <input name="preis" type="text" placeholder="z.B. 450.000" />
+        </div>
+        <div class="form-group">
+          <label>Baujahr</label>
+          <input name="baujahr" type="text" placeholder="z.B. 2018" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Ausstattung & Details</label>
+        <textarea name="details" placeholder="z.B. Balkon, EBK, Fußbodenheizung, Tiefgaragenstellplatz, frisch renoviert…" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Lage & Umgebung</label>
+        <textarea name="lage" placeholder="z.B. 500m zur S-Bahn, nahe Englischer Garten, Restaurants und Einkauf fußläufig…" required></textarea>
+      </div>
+
+      <div style="margin-top: 8px;">
+        <button type="submit" class="btn btn-primary" id="submitBtn">
+          ✦ Exposé generieren
+        </button>
+      </div>
+
+      <div class="error-msg" id="errorMsg"></div>
+    </form>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="card output-card">
+    <div class="card-title">
+      <span class="card-title-num">2</span>
+      Dein Exposé
+    </div>
+
+    <div class="output-placeholder" id="placeholder">
+      <div class="output-placeholder-icon">🏡</div>
+      <p>Formular ausfüllen und<br />„Exposé generieren" klicken.</p>
+    </div>
+
+    <div class="loading" id="loading">
+      <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+      <div class="spinner"></div>
+      <p>KI schreibt dein Exposé…</p>
+      <div class="loading-steps" id="loadingStep">Anfrage wird verarbeitet</div>
+    </div>
+
+    <div class="result" id="result">
+      <div class="result-header">
+        <div class="result-badge">Exposé fertig</div>
+        <span class="result-time" id="resultTime"></span>
+      </div>
+      <div class="result-text" id="resultText"></div>
+      <div class="result-actions">
+        <button class="btn-copy" id="copyBtn" onclick="copyExpose()">📋 Kopieren</button>
+        <button class="btn-reset" onclick="resetForm()">↺ Neu generieren</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const WEBHOOK_URL = 'https://n8n-production-608e.up.railway.app/webhook/expose-generator';
+
+  const form = document.getElementById('exposeForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const placeholder = document.getElementById('placeholder');
+  const loading = document.getElementById('loading');
+  const result = document.getElementById('result');
+  const resultText = document.getElementById('resultText');
+  const resultTime = document.getElementById('resultTime');
+  const errorMsg = document.getElementById('errorMsg');
+  const timerFill = document.getElementById('timerFill');
+  const loadingStep = document.getElementById('loadingStep');
+
+  let timerInterval = null;
+  let startTime = null;
+
+  const steps = [
+    'Anfrage wird verarbeitet',
+    'KI analysiert Objektdaten…',
+    'Headline wird generiert…',
+    'Exposé-Text wird verfasst…',
+    'Finalisierung…'
+  ];
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    await generateExpose();
+  });
+
+  async function generateExpose() {
+    const data = Object.fromEntries(new FormData(form));
+
+    showLoading();
+    errorMsg.classList.remove('active');
+    startTime = Date.now();
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          objekttyp: data.objekttyp,
+          adresse: data.adresse,
+          zimmer: data.zimmer,
+          flaeche: data.flaeche,
+          preis: data.preis,
+          baujahr: data.baujahr,
+          details: data.details,
+          lage: data.lage
+        })
+      });
+
+      const text = await res.text();
+
+      if (!res.ok) {
+        throw new Error(`Fehler ${res.status}: ${text}`);
+      }
+
+      const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+      showResult(text, elapsed);
+
+    } catch (err) {
+      showError(err.message);
+    }
+  }
+
+  function showLoading() {
+    placeholder.style.display = 'none';
+    loading.classList.add('active');
+    result.classList.remove('active');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Wird generiert…';
+
+    let progress = 0;
+    let stepIndex = 0;
+    timerFill.style.width = '0%';
+
+    timerInterval = setInterval(() => {
+      progress = Math.min(progress + 1.2, 90);
+      timerFill.style.width = progress + '%';
+
+      const newStep = Math.floor((progress / 90) * steps.length);
+      if (newStep !== stepIndex && newStep < steps.length) {
+        stepIndex = newStep;
+        loadingStep.textContent = steps[stepIndex];
+      }
+    }, 300);
+  }
+
+  function showResult(text, elapsed) {
+    clearInterval(timerInterval);
+    timerFill.style.width = '100%';
+
+    setTimeout(() => {
+      loading.classList.remove('active');
+      result.classList.add('active');
+      resultText.textContent = text;
+      resultTime.textContent = `⏱ ${elapsed}s`;
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '✦ Exposé generieren';
+    }, 400);
+  }
+
+  function showError(msg) {
+    clearInterval(timerInterval);
+    loading.classList.remove('active');
+    placeholder.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '✦ Exposé generieren';
+    errorMsg.textContent = 'Fehler: ' + msg + ' — Bitte erneut versuchen.';
+    errorMsg.classList.add('active');
+  }
+
+  function copyExpose() {
+    const btn = document.getElementById('copyBtn');
+    navigator.clipboard.writeText(resultText.textContent).then(() => {
+      btn.textContent = '✓ Kopiert!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 Kopieren';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function resetForm() {
+    result.classList.remove('active');
+    placeholder.style.display = 'block';
+    form.reset();
+  }
+</script>
+
+</body>
+</html>
