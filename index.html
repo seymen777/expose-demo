@@ -3,35 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GrAIt Systems — Websites & KI-Automation</title>
-  <meta name="description" content="GrAIt Systems baut maßgeschneiderte Websites und KI-Automationssysteme — alles aus einer Hand." />
+  <title>GrAIt Systems — KI-Automation & Websites für Makler und KMU</title>
+  <meta name="description" content="GrAIt Systems automatisiert wiederkehrende Prozesse — von der Lead-Response bis zur automatischen Dokumentation. Maßgeschneidert für Immobilienmakler und Selbstständige." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GrAIt Systems — KI-Automation & Websites" />
+  <meta property="og:description" content="Dein Business läuft automatisch — auch wenn du schläfst. Maßgeschneiderte KI-Automation für Immobilienmakler und Selbstständige." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://graitsystems.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GrAIt Systems — KI-Automation & Websites" />
+  <meta name="twitter:description" content="Dein Business läuft automatisch — auch wenn du schläfst." />
+
+  <!-- Schema: Organization -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"GrAIt Systems","url":"https://graitsystems.com","email":"seymen.pasa.d@gmail.com","description":"KI-Automation und Webentwicklung für Selbstständige und KMU — Schwerpunkt Immobilienmakler","foundingDate":"2026","areaServed":"DE"}
+  </script>
+
+  <!-- Schema: FAQPage -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was kostet das?","acceptedAnswer":{"@type":"Answer","text":"Jedes Projekt ist individuell — kein Festpreis, kein Paket-Zwang. Im kostenlosen Erstgespräch analysieren wir deinen Bedarf und erstellen ein transparentes Angebot."}},{"@type":"Question","name":"Ich bin Immobilienmakler — ist das relevant für mich?","acceptedAnswer":{"@type":"Answer","text":"Ja — Immobilienmakler sind unser Schwerpunkt. Wir kennen die Pain Points: langsame Lead-Response, manuelle Eigentümer-Berichte, Leads die durch fehlende Follow-ups verloren gehen."}},{"@type":"Question","name":"Kann ich das nicht einfach mit ChatGPT selbst bauen?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT ist passiv — du musst manuell starten, eintippen, prüfen. Es gibt keinen automatischen Trigger wenn eine Anfrage reinkommt. Unser System überwacht deine E-Mail, erkennt neue Leads automatisch, bewertet sie und antwortet — ohne dass du etwas tust."}},{"@type":"Question","name":"Muss ich technisches Wissen mitbringen?","acceptedAnswer":{"@type":"Answer","text":"Nein. Wir übernehmen alles — von der Konzeption bis zum Launch. Das einzige was du tust: deine bestehenden Accounts verknüpfen (5-Minuten-Aufgaben mit Anleitung)."}}]}
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet" /></noscript>
+  <meta property="og:image" content="https://graitsystems.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23080808'/><text y='.9em' font-size='72' font-family='sans-serif' fill='%238B5CF6'>G</text></svg>" />
 </head>
 <body>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="ann-bar" id="annBar">
+    <div class="ann-inner">
+      <span class="ann-pulse"></span>
+      <span class="ann-text">3 Pilot-Plätze verfügbar — Maklerbüros &amp; Praxen zu Testkonditionen.</span>
+      <a href="#kontakt" class="ann-cta open-form">Jetzt sichern →</a>
+      <button class="ann-close" id="annClose" aria-label="Schließen">✕</button>
+    </div>
+  </div>
+
+  <!-- COOKIE BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-Hinweis">
+    <div class="cookie-inner">
+      <p>Diese Website verwendet ausschließlich technisch notwendige Cookies. Kein Tracking, keine Werbung. <a href="datenschutz.html">Datenschutz</a></p>
+      <button class="cookie-btn" id="cookieAccept">Verstanden</button>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="logo">Gr<span class="logo-ai">AI</span>t Systems</a>
       <ul class="nav-links">
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ergebnisse">Ergebnisse</a></li>
+        <li><a href="#module">Module</a></li>
+        <li><a href="#ergebnisse">Referenzen</a></li>
         <li><a href="#prozess">Prozess</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
-      <a href="#kontakt" class="btn btn-primary nav-cta">Gespräch buchen</a>
+      <a href="#kontakt" class="btn btn-primary nav-cta open-form">30-Min. Analyse buchen</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menü"><span></span><span></span><span></span></button>
     </div>
     <div class="nav-mobile" id="navMobile">
-      <a href="#leistungen">Leistungen</a>
-      <a href="#ergebnisse">Ergebnisse</a>
+      <a href="#module">Module</a>
+      <a href="#ergebnisse">Referenzen</a>
       <a href="#prozess">Prozess</a>
       <a href="#faq">FAQ</a>
-      <a href="#kontakt" class="btn btn-primary">Gespräch buchen</a>
+      <a href="#kontakt" class="btn btn-primary open-form">30-Min. Analyse buchen</a>
     </div>
   </nav>
 
@@ -40,49 +86,110 @@
     <div class="hero-bg">
       <div class="hero-glow"></div>
       <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
     </div>
     <div class="container">
-      <div class="hero-badge fade-in">
-        <span class="badge-dot"></span>
-        Websites · KI-Automation · Alles aus einer Hand
-      </div>
-      <h1 class="hero-headline fade-in fade-in-delay-1">
-        Dein Business läuft.<br /><span class="hero-accent">Auch ohne dich.</span>
-      </h1>
-      <p class="hero-sub fade-in fade-in-delay-2">
-        Wir bauen deine Website und automatisieren deinen gesamten digitalen Auftritt mit KI — von Instagram bis CRM. Maßgeschneidert. Kein Template. Keine Agentur die nur Designs liefert.
-      </p>
-      <div class="hero-actions fade-in fade-in-delay-3">
-        <a href="#kontakt" class="btn btn-primary btn-lg">Kostenloses Erstgespräch buchen</a>
-        <a href="#leistungen" class="btn btn-ghost btn-lg">Was wir bauen →</a>
-      </div>
-      <div class="hero-trust fade-in fade-in-delay-4">
-        <div class="hero-scarcity">
-          <span class="scarcity-dot"></span>
-          Nur noch <strong>3 Plätze</strong> verfügbar
+      <div class="hero-inner">
+
+        <!-- LEFT: Text -->
+        <div class="hero-text">
+          <div class="hero-badge fade-in">
+            <span class="badge-dot"></span>
+            KI-Automation · Websites · Schwerpunkt: Immobilienmakler
+          </div>
+          <h1 class="hero-headline fade-in fade-in-delay-1">
+            Dein Business läuft automatisch.<br /><span class="hero-accent" id="heroAccent">Auch wenn du schläfst.</span>
+          </h1>
+          <p class="hero-sub fade-in fade-in-delay-2">
+            Wir bauen Systeme die für dich arbeiten — automatische Lead-Response in 90 Sek., Berichte die sich selbst schreiben, Follow-ups die nie vergessen werden. Maßgeschneidert. Live in 1–4 Wochen.
+          </p>
+          <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="#kontakt" class="btn btn-primary btn-lg btn-glow open-form">30-Min. Analyse anfragen →</a>
+            <a href="#module" class="btn btn-ghost btn-lg">Was wir bauen →</a>
+          </div>
+          <div class="hero-cal fade-in fade-in-delay-4">
+            <span class="hero-cal-or">oder</span>
+            <a href="[CAL-PLATZHALTER]" class="hero-cal-link" target="_blank" rel="noopener">Direkt Termin buchen → <span class="hero-cal-note">(Cal.com — Platzhalter)</span></a>
+          </div>
+          <div class="hero-trust fade-in fade-in-delay-4">
+            <div class="hero-scarcity">
+              <span class="scarcity-dot"></span>
+              Pilot-Plätze: Noch <strong>3 verfügbar</strong>
+            </div>
+            <div class="hero-trust-divider"></div>
+            <div class="hero-info">
+              <span>Erstgespräch kostenlos · Keine Verpflichtung</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-trust-divider"></div>
-        <div class="hero-rating">
-          <div class="stars">★★★★★</div>
-          <span>4.9 von 5 · Google</span>
+
+        <!-- RIGHT: Live Widget -->
+        <div class="hero-visual fade-in fade-in-delay-2">
+          <div class="hero-widget">
+            <div class="hw-header">
+              <div class="hw-dots"><span></span><span></span><span></span></div>
+              <span class="hw-title">GrAIt · Demo-System</span>
+              <span class="hw-live"><span class="live-dot"></span>demo</span>
+            </div>
+            <div class="hw-body">
+              <div class="hw-stats">
+                <div class="hw-stat">
+                  <span class="hw-num hw-num-count">0</span>
+                  <span class="hw-stat-label">Heute verarbeitet</span>
+                </div>
+                <div class="hw-stat">
+                  <span class="hw-num hw-num-hot">3</span>
+                  <span class="hw-stat-label">Heiße Leads</span>
+                </div>
+                <div class="hw-stat">
+                  <span class="hw-num">89</span>
+                  <span class="hw-stat-label">Ø Sek.</span>
+                </div>
+              </div>
+              <div class="hw-divider"></div>
+              <div class="hw-feed-label">Letzte Aktivitäten</div>
+              <div class="hw-feed" id="heroFeed"></div>
+            </div>
+            <div class="hw-footer">
+              <span class="status-dot"></span>
+              System aktiv — kein manueller Aufwand
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- PROJEKTE SHOWCASE -->
-  <section class="projects-bar">
+  <!-- MODULES BAR (marquee) -->
+  <section class="modules-bar">
     <div class="container">
-      <p class="projects-label">Aktuelle Projekte</p>
-      <div class="projects-track">
-        <div class="project-pill">🌐 Website — E-Commerce</div>
-        <div class="project-pill">📱 Instagram Automation — Fitness</div>
-        <div class="project-pill">🌐 Website — Beratung</div>
-        <div class="project-pill">⚙️ CRM Automation — Immobilien</div>
-        <div class="project-pill">📱 Instagram Automation — Gastronomie</div>
-        <div class="project-pill">🌐 Website — Personal Brand</div>
-        <div class="project-pill">⚙️ Lead-Flow — Coaching</div>
-        <div class="project-pill">📱 Instagram Automation — E-Commerce</div>
+      <p class="modules-bar-label">Was wir automatisieren</p>
+      <div class="modules-bar-overflow">
+        <div class="modules-bar-track">
+          <div class="marquee-content">
+            <div class="module-pill">⚡ Lead-Response (90 Sek.)</div>
+            <div class="module-pill">🎯 Lead-Qualifizierung</div>
+            <div class="module-pill">🔄 Follow-up Sequenzen</div>
+            <div class="module-pill">📊 Eigentümer-Reporting</div>
+            <div class="module-pill">🎙️ CRM per Sprache</div>
+            <div class="module-pill">📅 Terminkoordination</div>
+            <div class="module-pill">🌐 Website & Landingpage</div>
+            <div class="module-pill">📢 Content Distribution</div>
+          </div>
+          <div class="marquee-content" aria-hidden="true">
+            <div class="module-pill">⚡ Lead-Response (90 Sek.)</div>
+            <div class="module-pill">🎯 Lead-Qualifizierung</div>
+            <div class="module-pill">🔄 Follow-up Sequenzen</div>
+            <div class="module-pill">📊 Eigentümer-Reporting</div>
+            <div class="module-pill">🎙️ CRM per Sprache</div>
+            <div class="module-pill">📅 Terminkoordination</div>
+            <div class="module-pill">🌐 Website & Landingpage</div>
+            <div class="module-pill">📢 Content Distribution</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -92,66 +199,27 @@
     <div class="container">
       <div class="pain-header reveal">
         <div class="section-label">Das Problem</div>
-        <h2 class="section-headline">Warum die meisten Businesses online<br class="br-desktop" /> keine Ergebnisse erzielen —</h2>
-        <p class="pain-intro">…obwohl sie regelmäßig posten, Zeit investieren und sogar Geld ausgeben.</p>
-      </div>
-      <div class="pain-intro-text reveal">
-        <p>Wenn es dir wie den meisten Business-Inhabern geht, kennst du diese Probleme:</p>
+        <h2 class="section-headline">Erkennst du dich wieder?</h2>
       </div>
       <div class="pain-grid">
         <div class="pain-item reveal">
           <span class="pain-x">✕</span>
-          <p>Du postest regelmäßig auf Instagram — aber der Account wächst kaum und bringt keine Anfragen.</p>
+          <p><strong>Du verlierst Leads an Mitbewerber die schneller antworten.</strong> 73% der Kunden entscheiden sich für den Ersten der reagiert — Ø Markt-Reaktionszeit: 5 Stunden.</p>
         </div>
         <div class="pain-item reveal">
           <span class="pain-x">✕</span>
-          <p>DMs und Kommentare stapeln sich unbeantwortet. Potenzielle Kunden warten stundenlang auf eine Reaktion — und kaufen woanders.</p>
+          <p><strong>Verwaltung frisst deine produktive Zeit.</strong> Dokumentation, Follow-ups, Berichte — 15+ Stunden pro Woche die du nie zurückbekommst.</p>
         </div>
         <div class="pain-item reveal">
           <span class="pain-x">✕</span>
-          <p>Du verbringst täglich Stunden mit Content-Erstellung, Hashtag-Recherche und manuellem Posten — statt dich ums eigentliche Business zu kümmern.</p>
+          <p><strong>Deine Website generiert keine planbaren Anfragen.</strong> Besucher kommen, hinterlassen nichts und sind weg — ohne System kein Ergebnis.</p>
         </div>
         <div class="pain-item reveal">
           <span class="pain-x">✕</span>
-          <p>Deine Website existiert — aber sie generiert keine Anfragen. Besucher kommen, lesen kurz und verschwinden wieder.</p>
-        </div>
-        <div class="pain-item reveal">
-          <span class="pain-x">✕</span>
-          <p>Konkurrenten mit schlechterem Produkt haben mehr Follower, mehr Sichtbarkeit und mehr Kunden — und du fragst dich warum.</p>
-        </div>
-        <div class="pain-item reveal">
-          <span class="pain-x">✕</span>
-          <p>Manuelle Prozesse fressen Zeit: Follow-ups vergessen, Leads verloren, keine Übersicht über Kunden und Anfragen.</p>
-        </div>
-        <div class="pain-item reveal">
-          <span class="pain-x">✕</span>
-          <p>Du hast eine Agentur beauftragt — hast eine Website bekommen und seitdem nie wieder von ihr gehört.</p>
-        </div>
-        <div class="pain-item reveal">
-          <span class="pain-x">✕</span>
-          <p>Wachstum fühlt sich wie Arbeit an. Es fehlt ein System das läuft — auch wenn du nicht da bist.</p>
+          <p><strong>Du weißt dass Automation die Lösung ist.</strong> Aber nicht was es kostet, wer es baut, wie lange es dauert — und ob es für dich funktioniert.</p>
         </div>
       </div>
-      <p class="pain-closing reveal">Keine Sorge — das ist kein Einzelfall. Das ist das Ergebnis fehlender Systeme.</p>
-    </div>
-  </section>
-
-  <!-- WARUM ANDERE SCHEITERN -->
-  <section class="section section-dark why-section">
-    <div class="container">
-      <div class="why-header reveal">
-        <div class="section-label">Die Wahrheit</div>
-        <h2 class="section-headline">Warum mehr Content, mehr Budget oder<br class="br-desktop" /> eine neue App nichts ändert…</h2>
-      </div>
-      <div class="why-content reveal">
-        <p>Viele Businesses glauben, dass mehr Posting, teurere Tools oder ein anderer Social-Media-Kanal automatisch bessere Ergebnisse bringen. Sie probieren neue Strategien, kaufen Kurse, beauftragen Freelancer — und stellen frustriert fest: <strong>nichts davon löst das eigentliche Problem.</strong></p>
-        <p>Die Wahrheit lautet: Es liegt nicht am fehlenden Einsatz oder am falschen Kanal. Es liegt daran, dass kein funktionierendes System dahintersteckt.</p>
-        <div class="why-box">
-          <p class="why-box-text">Jede Art von Online-Präsenz — egal ob Instagram, Website oder Ads — steht und fällt mit einem einzigen Faktor: <strong>einem automatisierten System das die Arbeit übernimmt und rund um die Uhr läuft.</strong></p>
-        </div>
-        <p>Wenn deine Website nicht verkaufsoptimiert ist und dein Instagram nicht automatisiert läuft, verlierst du täglich potenzielle Kunden — an Mitbewerber die einfach besser aufgestellt sind.</p>
-        <p><strong>Die Lösung ist klar:</strong> Ein maßgeschneidertes System aus Website + KI-Automation — das für dich arbeitet, während du es nicht tust.</p>
-      </div>
+      <p class="pain-closing reveal">Das ist kein Zufall. Das ist das Ergebnis fehlender Systeme — und lösbar in 1–4 Wochen.</p>
     </div>
   </section>
 
@@ -160,17 +228,17 @@
     <div class="container">
       <div class="usp-header reveal">
         <div class="section-label">Der Unterschied</div>
-        <h2 class="section-headline">Die meisten Agenturen bauen dir eine Website.<br class="br-desktop" /> Wir bauen dir ein System.</h2>
+        <h2 class="section-headline">Die meisten Agenturen bauen dir ein Tool.<br class="br-desktop" /> Wir bauen dir ein System.</h2>
       </div>
       <div class="usp-compare">
         <div class="usp-col usp-col-old reveal">
-          <div class="usp-col-header"><span class="usp-tag usp-tag-old">Andere Agenturen</span></div>
+          <div class="usp-col-header"><span class="usp-tag usp-tag-old">Standard-Agentur</span></div>
           <ul class="usp-list usp-list-old">
             <li>Website fertig — du bist auf dich gestellt</li>
-            <li>Content musst du selbst produzieren</li>
-            <li>DMs & Kommentare: dein Problem</li>
+            <li>Tool eingerichtet — wie du es nutzt, dein Problem</li>
+            <li>Manueller Aufwand bleibt genauso hoch</li>
             <li>Kein Follow-up nach dem Launch</li>
-            <li>Generisches Design vom Template</li>
+            <li>Generisches Setup vom Template</li>
             <li>3–6 Monate Wartezeit</li>
             <li>Einmalauftrag — keine laufende Begleitung</li>
           </ul>
@@ -178,11 +246,11 @@
         <div class="usp-col usp-col-new reveal">
           <div class="usp-col-header"><span class="usp-tag usp-tag-new">Gr<span class="logo-ai">AI</span>t Systems</span></div>
           <ul class="usp-list usp-list-new">
-            <li>Website + vollständige Automation aus einer Hand</li>
-            <li>KI erstellt und postet deinen Content automatisch</li>
-            <li>DMs & Kommentare werden automatisch beantwortet</li>
+            <li>System das deine Prozesse vollständig übernimmt</li>
+            <li>Maßgeschneidert auf deinen genauen Arbeitsablauf</li>
+            <li>Manueller Aufwand geht gegen null</li>
             <li>Wir begleiten dich langfristig</li>
-            <li>Maßgeschneidert — kein einziges Template</li>
+            <li>Kein einziges Template — alles individuell</li>
             <li>Launch in 1–4 Wochen</li>
             <li>Laufende Optimierung inklusive</li>
           </ul>
@@ -191,169 +259,363 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM SHOWCASE -->
-  <section class="section section-dark insta-section">
+  <!-- PROZESS -->
+  <section class="section" id="prozess">
     <div class="container">
-      <div class="insta-inner">
-        <div class="insta-text reveal">
-          <div class="section-label">Kern-Produkt</div>
-          <h2 class="section-headline">Instagram vollständig automatisiert.</h2>
-          <p class="insta-body">Unser KI-System übernimmt deinen gesamten Instagram-Account — von der Content-Erstellung bis zur Community-Pflege. Dein Account wächst passiv, während du dich ums Business kümmerst.</p>
-          <ul class="insta-features">
-            <li>
-              <span class="feature-icon">✦</span>
-              <div><strong>Content Creation</strong><p>KI generiert Posts, Captions, Hashtags & Stories täglich</p></div>
-            </li>
-            <li>
-              <span class="feature-icon">✦</span>
-              <div><strong>Auto-Publishing</strong><p>Optimale Posting-Zeiten, vollautomatisch</p></div>
-            </li>
-            <li>
-              <span class="feature-icon">✦</span>
-              <div><strong>DM & Kommentar Automation</strong><p>Jede Nachricht wird beantwortet — sofort, rund um die Uhr</p></div>
-            </li>
-            <li>
-              <span class="feature-icon">✦</span>
-              <div><strong>Analytics & Optimierung</strong><p>Das System lernt was funktioniert und passt sich an</p></div>
-            </li>
-          </ul>
-          <a href="#kontakt" class="btn btn-primary">System anfragen →</a>
+      <div class="section-label reveal">So läuft es ab</div>
+      <h2 class="section-headline reveal">In 3 Schritten zum laufenden System</h2>
+      <div class="process-steps">
+        <div class="process-card reveal">
+          <div class="process-number">01</div>
+          <h3>30-Min. Analyse — kostenlos</h3>
+          <p>Du buchst ein unverbindliches Gespräch. Wir schauen uns deine aktuellen Prozesse an und zeigen dir konkret was automatisierbar ist — auch wenn du danach nicht buchst.</p>
+          <div class="process-time">⏱ Dein Aufwand: 2 Minuten zum Buchen</div>
         </div>
-        <div class="insta-dashboard reveal">
-          <div class="dashboard-card">
-            <div class="dashboard-header">
-              <div class="dashboard-dots"><span></span><span></span><span></span></div>
-              <span class="dashboard-title">GrAIt · Instagram Live</span>
-              <span class="dashboard-live"><span class="live-dot"></span>live</span>
+        <div class="process-connector reveal">→</div>
+        <div class="process-card reveal">
+          <div class="process-number">02</div>
+          <h3>Konzept & Angebot</h3>
+          <p>Nach dem Gespräch bekommst du ein konkretes Angebot mit Zeitplan, Umfang und Festpreis. Kein "wir melden uns" — du hast Klarheit innerhalb von 24 Stunden.</p>
+          <div class="process-time">⏱ 24h nach dem Gespräch</div>
+        </div>
+        <div class="process-connector reveal">→</div>
+        <div class="process-card reveal">
+          <div class="process-number">03</div>
+          <h3>System live in 1–4 Wochen</h3>
+          <p>Wir bauen, testen, übergeben. Du bekommst vollständige Admin-Rechte — alles gehört dir. Kein Vendor-Lock-in, keine Blackbox.</p>
+          <div class="process-time">⏱ Launch in 1–4 Wochen</div>
+        </div>
+      </div>
+      <div class="process-cta reveal">
+        <div class="pilot-progress">
+          <div class="pilot-progress-header">
+            <span class="scarcity-dot"></span>
+            <span>Pilot-Plätze: <strong>1 von 3 vergeben</strong></span>
+          </div>
+          <div class="pilot-bar"><div class="pilot-bar-fill" style="width:33%"></div></div>
+          <span class="pilot-bar-note">2 Plätze noch verfügbar — zu reduzierten Testkonditionen</span>
+        </div>
+        <a href="#kontakt" class="btn btn-primary btn-lg btn-glow open-form">30-Min. Analyse buchen — kostenlos →</a>
+        <p class="risk-note">Im Gespräch bekommst du mindestens 3 konkrete Ideen — auch wenn du danach nicht buchst.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO VIDEO -->
+  <section class="section section-dark demo-section">
+    <div class="container">
+      <div class="demo-header reveal">
+        <div class="section-label">System in Aktion</div>
+        <h2 class="section-headline">Sieh wie es funktioniert — in 60 Sekunden</h2>
+        <p class="section-sub">Eine Anfrage kommt rein. Das System analysiert, bewertet und antwortet — vollautomatisch, ohne manuellen Eingriff.</p>
+      </div>
+      <div class="demo-video-wrap reveal">
+        <div class="demo-video-placeholder">
+          <div class="demo-play">
+            <div class="demo-play-btn">▶</div>
+          </div>
+          <div class="demo-placeholder-text">
+            <strong>Demo-Video · Coming Soon</strong>
+            <p>Wir nehmen gerade das Walkthrough-Video auf — sieh dir in der Zwischenzeit das Live-Demo oben im Hero an.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE EXPOSÉ DEMO -->
+  <section class="section expose-demo-section" id="expose-demo">
+    <div class="container">
+      <div class="expose-demo-header reveal">
+        <div class="section-label">Live-Demo — kein Fake</div>
+        <h2 class="section-headline">Gib echte Daten ein. In 10 Sekunden fertig.</h2>
+        <p class="section-sub">Der gleiche Workflow der für unsere Makler-Clients läuft — direkt hier im Browser. Einfach ausprobieren.</p>
+      </div>
+      <div class="expose-demo-inner">
+        <div class="expose-form-col reveal">
+          <form id="exposeForm" novalidate>
+            <div class="expose-form-grid">
+              <div class="form-field">
+                <label class="form-label" for="ex-typ">Objekttyp</label>
+                <select class="form-select" id="ex-typ" name="objekttyp">
+                  <option value="Eigentumswohnung">Eigentumswohnung</option>
+                  <option value="Einfamilienhaus">Einfamilienhaus</option>
+                  <option value="Mehrfamilienhaus">Mehrfamilienhaus</option>
+                  <option value="Penthouse">Penthouse</option>
+                  <option value="Reihenhaus">Reihenhaus</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ex-zimmer">Zimmer</label>
+                <input class="form-input" id="ex-zimmer" name="zimmer" type="number" placeholder="3" value="3" min="1" max="20" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ex-flaeche">Fläche (m²)</label>
+                <input class="form-input" id="ex-flaeche" name="flaeche" type="number" placeholder="85" value="85" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="ex-preis">Preis (€)</label>
+                <input class="form-input" id="ex-preis" name="preis" type="text" placeholder="450.000" value="450.000" />
+              </div>
             </div>
-            <div class="dashboard-stats">
-              <div class="dash-stat">
-                <span class="dash-num" data-target="2847">0</span>
-                <span class="dash-label">Neue Follower</span>
-                <span class="dash-trend up">↑ 12%</span>
-              </div>
-              <div class="dash-stat">
-                <span class="dash-num" data-target="341">0</span>
-                <span class="dash-label">DMs beantwortet</span>
-                <span class="dash-trend up">↑ 8%</span>
-              </div>
-              <div class="dash-stat">
-                <span class="dash-num" data-target="94">0</span>
-                <span class="dash-label">Posts veröffentlicht</span>
-                <span class="dash-trend up">↑ 100%</span>
-              </div>
+            <div class="form-field">
+              <label class="form-label" for="ex-adresse">Adresse</label>
+              <input class="form-input" id="ex-adresse" name="adresse" type="text" placeholder="Musterstraße 12, 10115 Berlin" value="Musterstraße 12, 10115 Berlin" />
             </div>
-            <div class="dashboard-feed">
-              <div class="feed-label">Letzte Aktionen</div>
-              <div class="feed-item">
-                <span class="feed-type post">Post</span>
-                <span class="feed-text">Neuer Carousel-Post veröffentlicht</span>
-                <span class="feed-time">vor 2 Min</span>
-              </div>
-              <div class="feed-item">
-                <span class="feed-type dm">DM</span>
-                <span class="feed-text">Automatische Antwort gesendet</span>
-                <span class="feed-time">vor 5 Min</span>
-              </div>
-              <div class="feed-item">
-                <span class="feed-type story">Story</span>
-                <span class="feed-text">Story hochgeladen & optimiert</span>
-                <span class="feed-time">vor 12 Min</span>
-              </div>
-              <div class="feed-item">
-                <span class="feed-type comment">Komm.</span>
-                <span class="feed-text">18 Kommentare beantwortet</span>
-                <span class="feed-time">vor 18 Min</span>
-              </div>
+            <div class="form-field">
+              <label class="form-label" for="ex-details">Besonderheiten</label>
+              <input class="form-input" id="ex-details" name="details" type="text" placeholder="Balkon, Einbauküche, Tiefgarage..." value="Modernes Bad, Einbauküche, Balkon, Tiefgaragenstellplatz" />
             </div>
-            <div class="dashboard-footer">
-              <span class="status-dot"></span>
-              System läuft — kein manueller Aufwand
+            <div class="form-field">
+              <label class="form-label" for="ex-lage">Lage</label>
+              <input class="form-input" id="ex-lage" name="lage" type="text" placeholder="Zentrale Lage, U-Bahn 5 Min..." value="Zentrale Lage, 5 Gehminuten zum U-Bahnhof" />
+            </div>
+            <div class="expose-form-err" id="exposeFormErr"></div>
+            <button type="submit" class="btn btn-primary btn-lg expose-submit-btn" id="exposeSubmitBtn">
+              ⚡ Exposé jetzt generieren →
+            </button>
+            <div class="expose-hint">Durchschnittlich fertig in 8–12 Sekunden · Echtzeit-KI</div>
+          </form>
+        </div>
+        <div class="expose-result-col">
+          <div class="expose-state expose-state-empty" id="exposeStateEmpty">
+            <div class="expose-empty-icon">📄</div>
+            <p class="expose-empty-title">Dein Exposé erscheint hier</p>
+            <p class="expose-empty-sub">Füll die Felder aus und klick auf Generieren</p>
+          </div>
+          <div class="expose-state expose-state-loading" id="exposeStateLoading" style="display:none;">
+            <div class="expose-loading-dots"><span></span><span></span><span></span></div>
+            <p class="expose-loading-text">KI schreibt dein Exposé<span class="expose-loading-ellipsis"></span></p>
+            <p class="expose-loading-sub">Normalerweise 8–12 Sekunden</p>
+          </div>
+          <div class="expose-state expose-state-result" id="exposeStateResult" style="display:none;">
+            <div class="expose-result-topbar">
+              <span class="expose-result-badge">✓ Generiert in <strong id="exposeGenTime">0</strong> Sek.</span>
+              <button class="expose-copy-btn" id="exposeCopyBtn" title="Kopieren">Kopieren</button>
+            </div>
+            <div class="expose-result-body" id="exposeResultBody"></div>
+            <div class="expose-result-footer">
+              <button class="btn btn-ghost expose-new-btn" id="exposeNewBtn">Neues Exposé →</button>
+              <a href="#kontakt" class="btn btn-primary open-form">System für mich einrichten →</a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTOMATION MODULES SHOWCASE -->
+  <section class="section section-dark modules-showcase" id="module">
+    <div class="container">
+      <div class="modules-showcase-header reveal">
+        <div class="section-label">Was wir bauen</div>
+        <h2 class="section-headline">Die 5 Automation-Module die Immobilienmakler<br class="br-desktop"> täglich Stunden sparen.</h2>
+        <p class="section-sub">Jedes Modul ist einzeln buchbar. Alle Module zusammen geben dir <strong>36–41 Stunden pro Woche zurück.</strong></p>
+      </div>
+
+      <div class="modules-bento">
+
+        <!-- FEATURED: Lead-Response -->
+        <div class="module-card module-card-featured reveal">
+          <div class="module-tag-badge">Kern-Modul · Live ●</div>
+          <div class="module-icon-wrap">⚡</div>
+          <h3>Lead-Response in 90 Sekunden</h3>
+          <p class="module-desc">Jede ImmoScout-Anfrage, Website-Kontaktformular oder E-Mail beantwortet sich automatisch — personalisiert, in unter 90 Sekunden. 24/7, auch samstagnacht.</p>
+          <div class="module-flow" id="moduleFlow">
+            <div class="flow-step flow-step-1">Anfrage rein</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step flow-step-2">KI analysiert</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step flow-step-3">Antwort raus</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step flow-step-4 flow-step-highlight">90 Sek. ✓</div>
+          </div>
+          <div class="module-comparison">
+            <div class="comp-col comp-bad">
+              <span class="comp-label">Ø Markt heute</span>
+              <span class="comp-val">5 Stunden</span>
+            </div>
+            <div class="comp-sep">→</div>
+            <div class="comp-col comp-good">
+              <span class="comp-label">Mit System</span>
+              <span class="comp-val">90 Sek.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lead-Qualifizierung -->
+        <div class="module-card reveal">
+          <div class="module-icon-wrap">🎯</div>
+          <h3>Lead-Qualifizierung</h3>
+          <p class="module-desc">Von 20 Anfragen filtert das System automatisch die 3 echten Käufer. Du rufst nur noch heiße Leads an.</p>
+          <div class="module-time-badge">3–4h/Woche gespart</div>
+        </div>
+
+        <!-- Follow-up -->
+        <div class="module-card reveal">
+          <div class="module-live-pill"><span class="live-dot-sm"></span>Live</div>
+          <div class="module-icon-wrap">🔄</div>
+          <h3>Follow-up Sequenzen</h3>
+          <p class="module-desc">Der Markt braucht 10–12 Kontaktpunkte. Die meisten schaffen 1–2. Das System macht alle automatisch bis zum Abschluss.</p>
+          <div class="module-time-badge">4–5h/Woche gespart</div>
+        </div>
+
+        <!-- Eigentümer-Reporting -->
+        <div class="module-card reveal">
+          <div class="module-live-pill"><span class="live-dot-sm"></span>Live</div>
+          <div class="module-icon-wrap">📊</div>
+          <h3>Eigentümer-Wochenbericht</h3>
+          <p class="module-desc">Montags 7:00 Uhr schreibt sich der Bericht von allein und geht automatisch raus. Keine Anrufe "Wie läuft es?" mehr.</p>
+          <div class="module-time-badge">4–5h/Woche gespart</div>
+        </div>
+
+        <!-- CRM per Sprache -->
+        <div class="module-card reveal">
+          <div class="module-icon-wrap">🎙️</div>
+          <h3>CRM per Spracheingabe</h3>
+          <p class="module-desc">30 Sekunden nach der Besichtigung einsprechen — CRM wird automatisch befüllt und das nächste Follow-up erstellt.</p>
+          <div class="module-time-badge">10–15h/Woche gespart</div>
+        </div>
+
+        <!-- Terminkoordination -->
+        <div class="module-card reveal">
+          <div class="module-icon-wrap">📅</div>
+          <h3>Terminkoordination</h3>
+          <p class="module-desc">Heiße Leads buchen Besichtigungen selbst. 24h- und 2h-Erinnerung automatisch. No-Show-Rate sinkt drastisch.</p>
+          <div class="module-time-badge">8h/Woche gespart</div>
+        </div>
+
+      </div>
+
+      <div class="modules-footer reveal">
+        <p class="modules-note">+ Content Distribution · Website & Landingpage · Custom-Module auf Anfrage</p>
+        <a href="#kontakt" class="btn btn-primary open-form">Welche Module brauche ich? →</a>
       </div>
     </div>
   </section>
 
   <!-- LEISTUNGEN -->
-  <section class="section" id="leistungen">
+  <!-- REFERENZEN + PILOT -->
+  <section class="section section-dark" id="ergebnisse">
     <div class="container">
-      <div class="section-label reveal">Leistungen</div>
-      <h2 class="section-headline reveal">Alles was dein Business braucht</h2>
-      <p class="section-sub reveal">Einzeln oder kombiniert — wir bauen was du wirklich brauchst. Kein Paket-Zwang, kein Festpreis.</p>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <div class="service-icon">🌐</div>
-          <h3>Web Development</h3>
-          <p>Verkaufsoptimierte Websites die Vertrauen aufbauen und Anfragen generieren — kein Template, sondern individuell auf dein Business.</p>
-          <ul class="service-list">
-            <li>Landing Pages & Business Websites</li>
-            <li>E-Commerce Shops</li>
-            <li>Animationen & Custom Interactions</li>
-            <li>SEO-optimiert & mobile-first</li>
-          </ul>
+      <div class="section-label reveal">Referenzen</div>
+      <h2 class="section-headline reveal">Erste Projekte. Echte Ergebnisse.</h2>
+      <p class="section-sub reveal">Das erste System läuft. Noch 2 Pilot-Plätze frei — zu Testkonditionen.</p>
+      <div class="ref-grid">
+        <div class="ref-card reveal">
+          <div class="ref-header">
+            <div class="ref-avatar">TP</div>
+            <div class="ref-info">
+              <strong>Therapy Point Göttingen</strong>
+              <span>Gesundheitspraxis · Shopify-Website</span>
+            </div>
+            <div class="ref-live-badge">Live ✓</div>
+          </div>
+          <div class="ref-deliverables">
+            <div class="ref-item">✓ Shopify-Website konzipiert und launched</div>
+            <div class="ref-item">✓ Online-Buchungssystem integriert</div>
+            <div class="ref-item">✓ Mobile-first, SEO-optimiert</div>
+            <div class="ref-item">✓ Vollständige Eigentümer-Übergabe</div>
+          </div>
+          <div class="ref-footer-tag">Abgeschlossen Juli 2026</div>
         </div>
-        <div class="service-card service-card-featured reveal">
-          <div class="service-badge">Kern-Produkt</div>
-          <div class="service-icon">📱</div>
-          <h3>Instagram Automation</h3>
-          <p>Dein Account wächst vollautomatisch — passiv, ohne deinen Aufwand. Content, Stories, DMs, Kommentare: alles läuft von selbst.</p>
-          <ul class="service-list">
-            <li>KI-Content Creation & Auto-Publishing</li>
-            <li>Stories, Reels, Carousel — alles automatisch</li>
-            <li>DM & Kommentar Automation</li>
-            <li>Analytics & kontinuierliche Optimierung</li>
+        <div class="ref-card ref-card-pilot reveal">
+          <div class="ref-pilot-scarcity">
+            <span class="scarcity-dot"></span>
+            Nur 3 Plätze verfügbar
+          </div>
+          <h3>Pilot-Platz sichern</h3>
+          <p>Wir suchen das erste Pilotprojekt in deiner Branche. Du bekommst Testkunden-Konditionen — wir bekommen deine Case Study als Referenz.</p>
+          <ul class="pilot-benefits">
+            <li>Reduzierter Setup-Preis (auf Anfrage)</li>
+            <li>Direkte Zusammenarbeit mit dem Gründer</li>
+            <li>System bleibt vollständig in deinem Besitz</li>
+            <li>Priorität bei der Umsetzung</li>
           </ul>
+          <a href="#kontakt" class="btn btn-primary open-form" style="width:100%;justify-content:center;margin-top:8px;">Pilot-Platz anfragen →</a>
         </div>
-        <div class="service-card reveal">
-          <div class="service-icon">⚙️</div>
-          <h3>Business Automation</h3>
-          <p>Wiederkehrende Prozesse einmal bauen — für immer automatisch laufen lassen. Mehr Output, weniger manuelle Arbeit.</p>
-          <ul class="service-list">
-            <li>Lead-Generierung & Follow-up</li>
-            <li>CRM & Kundenverwaltung</li>
-            <li>E-Mail & Benachrichtigungs-Flows</li>
-            <li>Custom KI-Workflows</li>
-          </ul>
-        </div>
-      </div>
-      <div class="services-cta reveal">
-        <p>Nicht sicher was du brauchst?</p>
-        <a href="#kontakt" class="btn btn-primary">Kostenlos beraten lassen — wir finden es gemeinsam heraus</a>
       </div>
     </div>
   </section>
 
-  <!-- ERGEBNISSE / TESTIMONIALS -->
-  <section class="section section-dark" id="ergebnisse">
+  <!-- WEBSITE ANALYSE -->
+  <section class="section analyse-section" id="analyse">
     <div class="container">
-      <div class="section-label reveal">Ergebnisse</div>
-      <h2 class="section-headline reveal">Das sagen unsere Kunden</h2>
-      <p class="section-sub reveal">Echte Ergebnisse von echten Projekten.</p>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stats">
-            <div class="t-stat"><span class="t-num">+340%</span><span class="t-label">Follower-Wachstum</span></div>
-            <div class="t-stat"><span class="t-num">0h</span><span class="t-label">Manueller Aufwand</span></div>
-            <div class="t-stat"><span class="t-num">24/7</span><span class="t-label">DMs beantwortet</span></div>
+      <div class="analyse-inner">
+
+        <div class="analyse-text reveal">
+          <div class="section-label">Kostenlos & sofort</div>
+          <h2 class="section-headline">Wie gut ist deine Website wirklich?</h2>
+          <p class="analyse-sub">Gib deine URL ein — KI analysiert deine Seite und schickt dir in ~2 Minuten einen kostenlosen Bericht.</p>
+          <ul class="analyse-checks">
+            <li><span class="analyse-check-icon">✓</span> Digital Score (0–100)</li>
+            <li><span class="analyse-check-icon">✓</span> 5 konkrete Schwachstellen</li>
+            <li><span class="analyse-check-icon">✓</span> Automation-Chancen für dein Business</li>
+            <li><span class="analyse-check-icon">✓</span> Sofort umsetzbare Verbesserungen</li>
+          </ul>
+          <p class="analyse-disclaimer">Kein Spam · Keine Verpflichtung · Kostenlos</p>
+        </div>
+
+        <div class="analyse-form-wrap reveal">
+          <div class="analyse-card" id="analyseCard">
+            <form id="analyseForm" novalidate>
+              <div class="form-field">
+                <label class="form-label" for="a-url">Website-URL</label>
+                <input class="form-input" id="a-url" name="url" type="url"
+                  placeholder="https://deinebusiness.de" autocomplete="url" />
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="a-email">Deine E-Mail</label>
+                <input class="form-input" id="a-email" name="email" type="email"
+                  placeholder="du@beispiel.de" autocomplete="email" />
+              </div>
+              <div class="form-error-msg" id="analyseErr"></div>
+              <button type="submit" class="btn btn-primary btn-lg analyse-submit" id="analyseBtn">
+                Kostenlose Analyse starten →
+              </button>
+            </form>
+            <div class="analyse-success" id="analyseSuccess">
+              <div class="analyse-success-icon">📊</div>
+              <h3>Analyse gestartet!</h3>
+              <p>Wir analysieren deine Website gerade — du bekommst den Bericht in <strong>~2 Minuten</strong> per E-Mail.</p>
+              <p class="analyse-success-note">Schau auch in deinen Spam-Ordner.</p>
+            </div>
           </div>
-          <p class="testimonial-quote">"Vorher haben wir täglich Stunden mit Content verbracht. Jetzt läuft alles automatisch und der Account wächst schneller als je zuvor."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">FK</div>
-            <div><strong>Fitness-Studio</strong><span>E-Commerce · Instagram Automation</span></div>
+          <div class="analyse-sample reveal">
+            <span class="analyse-sample-label">Beispiel-Score</span>
+            <div class="analyse-sample-bars">
+              <div class="asb-row"><span>Klarheit</span><div class="asb-bar"><div class="asb-fill" data-width="55%" style="width:0%"></div></div><span class="asb-val">11/20</span></div>
+              <div class="asb-row"><span>CTAs</span><div class="asb-bar"><div class="asb-fill" data-width="35%" style="width:0%"></div></div><span class="asb-val">7/20</span></div>
+              <div class="asb-row"><span>Vertrauen</span><div class="asb-bar"><div class="asb-fill" data-width="45%" style="width:0%"></div></div><span class="asb-val">9/20</span></div>
+              <div class="asb-row"><span>Mobil</span><div class="asb-bar"><div class="asb-fill" data-width="80%" style="width:0%"></div></div><span class="asb-val">16/20</span></div>
+              <div class="asb-row"><span>Automation</span><div class="asb-bar"><div class="asb-fill asb-fill-accent" data-width="25%" style="width:0%"></div></div><span class="asb-val">5/20</span></div>
+            </div>
+            <div class="asb-total">Gesamt: <strong>48/100</strong> · <span class="asb-label-bad">Verbesserungsbedarf</span></div>
           </div>
         </div>
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stats">
-            <div class="t-stat"><span class="t-num">3×</span><span class="t-label">Mehr Anfragen</span></div>
-            <div class="t-stat"><span class="t-num">2 Wo.</span><span class="t-label">Bis Launch</span></div>
-            <div class="t-stat"><span class="t-num">100%</span><span class="t-label">Individuell</span></div>
-          </div>
-          <p class="testimonial-quote">"In zwei Wochen hatte ich eine Website die tatsächlich Kunden bringt. Keine andere Agentur hat das so schnell und sauber umgesetzt."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">MB</div>
-            <div><strong>Beratungsunternehmen</strong><span>Web Development</span></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GRÜNDER -->
+  <section class="section founder-section">
+    <div class="container">
+      <div class="founder-inner reveal">
+        <div class="founder-avatar-wrap">
+          <div class="founder-avatar">SP</div>
+          <!-- Platzhalter: <img src="foto.jpg" alt="Seymen Pasa" class="founder-photo"> -->
+          <div class="founder-location">📍 Deutschland</div>
+        </div>
+        <div class="founder-content">
+          <div class="section-label">Wer dahintersteckt</div>
+          <h2 class="founder-name">Seymen Pasa</h2>
+          <p class="founder-title">Gründer, GrAIt Systems · 20 Jahre</p>
+          <p class="founder-bio">Ich baue KI-Automatisierungssysteme für Selbstständige und Unternehmen — weil ich überzeugt bin, dass die meisten Businesses 15+ Stunden pro Woche an manuellen Prozessen verlieren die sich vollständig automatisieren lassen.</p>
+          <p class="founder-bio">Jedes System das ich baue, baue ich persönlich. Du sprichst immer direkt mit mir — kein Projektmanager, kein Subcontractor, kein Ticket-System.</p>
+          <div class="founder-links">
+            <a href="[LINKEDIN-PLATZHALTER]" class="founder-link founder-link-li" target="_blank" rel="noopener">LinkedIn →</a>
+            <a href="mailto:seymen.pasa.d@gmail.com" class="founder-link">seymen.pasa.d@gmail.com</a>
           </div>
         </div>
       </div>
@@ -363,15 +625,16 @@
   <!-- STATS BAR -->
   <section class="stats-bar">
     <div class="container">
+      <p class="stats-bar-label">Was das System schafft</p>
       <div class="stats-inner">
         <div class="stats-item reveal">
-          <span class="stats-num" data-target="10">0</span><span class="stats-suffix">+</span>
-          <span class="stats-label">Projekte abgeschlossen</span>
+          <span class="stats-num" data-target="36">0</span><span class="stats-suffix">h+</span>
+          <span class="stats-label">Zeitersparnis pro Woche</span>
         </div>
         <div class="stats-divider"></div>
         <div class="stats-item reveal">
-          <span class="stats-num" data-target="24">0</span><span class="stats-suffix">/7</span>
-          <span class="stats-label">Automation läuft durch</span>
+          <span class="stats-num" data-target="90">0</span><span class="stats-suffix"> Sek.</span>
+          <span class="stats-label">Lead-Response Zeit</span>
         </div>
         <div class="stats-divider"></div>
         <div class="stats-item reveal">
@@ -380,46 +643,57 @@
         </div>
         <div class="stats-divider"></div>
         <div class="stats-item reveal">
-          <span class="stats-num" data-target="0">0</span><span class="stats-suffix"> Templates</span>
-          <span class="stats-label">Alles 100% individuell</span>
+          <span class="stats-num" data-target="24">0</span><span class="stats-suffix">/7</span>
+          <span class="stats-label">System immer aktiv</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROZESS -->
-  <section class="section" id="prozess">
+  <!-- NICHT FÜR -->
+  <section class="section section-dark nicht-fuer-section">
     <div class="container">
-      <div class="section-label reveal">Zusammenarbeit</div>
-      <h2 class="section-headline reveal">In 3 Schritten zum laufenden System</h2>
-      <div class="process-steps">
-        <div class="process-card reveal">
-          <div class="process-number">Schritt 1</div>
-          <h3>Terminanfrage</h3>
-          <p>Du buchst ein kostenloses & unverbindliches Erstgespräch. Wir schauen uns vorher kurz deine aktuelle Online-Präsenz an — damit das Gespräch sofort konkret wird.</p>
-          <div class="process-time">⏱ 2 Minuten</div>
+      <div class="nicht-header reveal">
+        <div class="section-label">Ehrlich gesagt</div>
+        <h2 class="section-headline">Wir passen nicht zu jedem.<br class="br-desktop"> Und das ist gut so.</h2>
+        <p class="section-sub">Bevor du anfragst — wer bei uns falsch aufgehoben ist:</p>
+      </div>
+      <div class="nicht-grid">
+        <div class="nicht-item reveal">
+          <span class="nicht-x">✕</span>
+          <div class="nicht-content">
+            <strong>Du erwartest Ergebnisse ohne Prozess</strong>
+            <p>Wir bauen individuelle Systeme — kein Template, kein "morgen fertig". Setup dauert 1–4 Wochen und braucht kurze Abstimmung von dir.</p>
+          </div>
         </div>
-        <div class="process-connector reveal">→</div>
-        <div class="process-card reveal">
-          <div class="process-number">Schritt 2</div>
-          <h3>Erstgespräch (30 Min)</h3>
-          <p>Wir lernen uns kennen, analysieren gemeinsam was bei dir fehlt und zeigen dir konkret was möglich ist — inklusive 3 sofort umsetzbaren Tipps, die du direkt anwenden kannst.</p>
-          <div class="process-time">⏱ 30 Minuten · kostenlos</div>
+        <div class="nicht-item reveal">
+          <span class="nicht-x">✕</span>
+          <div class="nicht-content">
+            <strong>Dein Monatsumsatz liegt unter 2.000 €</strong>
+            <p>Automation rechnet sich erst ab einem gewissen Volumen. Darunter ist der Setup-Aufwand unverhältnismäßig — das sagen wir lieber ehrlich vorher.</p>
+          </div>
         </div>
-        <div class="process-connector reveal">→</div>
-        <div class="process-card reveal">
-          <div class="process-number">Schritt 3</div>
-          <h3>Konzept & Umsetzung</h3>
-          <p>Wir erstellen dein individuelles Konzept. Dann entscheiden wir gemeinsam ob und wie wir es umsetzen — keine Verpflichtung, keine Drucksituation.</p>
-          <div class="process-time">⏱ Launch in 1–4 Wochen</div>
+        <div class="nicht-item reveal">
+          <span class="nicht-x">✕</span>
+          <div class="nicht-content">
+            <strong>Du willst ein Fertig-Template "von der Stange"</strong>
+            <p>Kein Wix, kein Shopify-Theme, kein Copy-paste-System. Wenn das ausreicht, gibt es günstigere Anbieter als uns.</p>
+          </div>
+        </div>
+        <div class="nicht-item reveal">
+          <span class="nicht-x">✕</span>
+          <div class="nicht-content">
+            <strong>Entscheidungen brauchen Wochen und mehrere Gremien</strong>
+            <p>Wir arbeiten direkt mit Entscheidern. Wer nicht selbst entscheiden kann, bremst den gesamten Prozess aus — und damit deinen ROI.</p>
+          </div>
         </div>
       </div>
-      <div class="process-cta reveal">
-        <div class="scarcity-banner">
-          <span class="scarcity-dot"></span>
-          <strong>Nur noch 3 Plätze verfügbar</strong> — nächste freie Kapazität in 2 Wochen
+      <div class="nicht-cta reveal">
+        <div class="nicht-positive">
+          <span class="nicht-check">✓</span>
+          <p>Wenn du erkennst, dass du täglich Zeit verlierst — und bereit bist das zu ändern — bist du genau richtig.</p>
         </div>
-        <a href="#kontakt" class="btn btn-primary btn-lg">Jetzt kostenlosen Termin sichern →</a>
+        <a href="#kontakt" class="btn btn-primary open-form">Passt das zu mir? Kostenlos herausfinden →</a>
       </div>
     </div>
   </section>
@@ -435,24 +709,32 @@
           <div class="faq-answer"><p>Jedes Projekt ist individuell — kein Festpreis, kein Paket-Zwang. Im kostenlosen Erstgespräch analysieren wir deinen Bedarf und erstellen ein transparentes Angebot ohne versteckte Kosten.</p></div>
         </div>
         <div class="faq-item reveal">
+          <button class="faq-question">Ich bin Immobilienmakler — ist das relevant für mich?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Ja — Immobilienmakler sind unser Schwerpunkt. Wir kennen die Pain Points: langsame Lead-Response, manuelle Eigentümer-Berichte, Leads die durch fehlende Follow-ups verloren gehen. Das System adressiert genau das — und wir sprechen deine Sprache.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Kann ich das nicht einfach mit ChatGPT selbst bauen?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>ChatGPT ist passiv — du musst manuell starten, eintippen, prüfen. Es gibt keinen automatischen Trigger wenn eine Anfrage reinkommt. Unser System überwacht deine E-Mail, erkennt neue Leads automatisch, bewertet sie und antwortet — ohne dass du etwas tust. Das ist der Unterschied zwischen einem Werkzeug und einem System das für dich arbeitet.</p></div>
+        </div>
+        <div class="faq-item reveal">
           <button class="faq-question">Muss ich technisches Wissen mitbringen?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Nein. Wir übernehmen alles — von der Konzeption bis zum Launch. Du sagst uns was du willst, wir setzen es um und erklären dir alles in verständlicher Sprache.</p></div>
+          <div class="faq-answer"><p>Nein. Wir übernehmen alles — von der Konzeption bis zum Launch. Das einzige was du tust: deine bestehenden Accounts verknüpfen (5-Minuten-Aufgaben mit Schritt-für-Schritt Anleitung).</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-question">Wie schnell seid ihr?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Je nach Umfang 1–4 Wochen. Keine vagen "3–6 Monate" Versprechen — wir geben dir im Erstgespräch eine konkrete Zeitschätzung.</p></div>
+          <div class="faq-answer"><p>Je nach Umfang 1–4 Wochen. Keine vagen "3–6 Monate" Versprechen — wir geben dir im Erstgespräch eine konkrete Zeitschätzung für dein spezifisches Projekt.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-question">Was passiert nach dem Launch — gehört mir das System?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Ja. Alle Accounts und das System gehören dir. Wir setzen es auf deiner Infrastruktur auf und übergeben dir vollständige Admin-Rechte. Kein Vendor-Lock-in — wenn du dich irgendwann trennst, nimmst du alles mit.</p></div>
         </div>
         <div class="faq-item reveal">
           <button class="faq-question">Kann ich einzelne Leistungen buchen?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Ja. Website, Instagram Automation oder Business Automation — jedes einzeln buchbar. Viele Kunden starten mit einer Leistung und erweitern wenn sie die Ergebnisse sehen.</p></div>
+          <div class="faq-answer"><p>Ja. Website, Lead-Response-System oder Reporting — jedes Modul einzeln buchbar. Viele Kunden starten mit einem Modul und erweitern wenn sie die Ergebnisse sehen.</p></div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question">Ich habe bereits eine Website. Lohnt sich eine Überarbeitung?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Sehr wahrscheinlich ja. Die meisten bestehenden Websites sind nicht auf Conversion optimiert. Wenn deine Website aktuell keine planbaren Anfragen generiert, ist das ein klares Zeichen. Im kostenlosen Erstgespräch sagen wir dir ehrlich was sich lohnt.</p></div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question">Was passiert nach dem Launch?<span class="faq-icon">+</span></button>
-          <div class="faq-answer"><p>Wir lassen dich nicht allein. Ob monatlicher Retainer für laufende Optimierung oder On-demand Unterstützung bei Bedarf — wir sind weiterhin erreichbar und begleiten dein Wachstum.</p></div>
+          <button class="faq-question">Was passiert nach dem Launch — gibt es Support?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Wir lassen dich nicht allein. Monatlicher Retainer für laufende Optimierung oder On-demand Unterstützung bei Bedarf — wir sind weiterhin erreichbar und begleiten dein Wachstum.</p></div>
         </div>
       </div>
     </div>
@@ -463,18 +745,27 @@
     <div class="container">
       <div class="cta-inner reveal">
         <div class="cta-glow"></div>
-        <div class="cta-badge">
-          <span class="scarcity-dot"></span>
-          Nur noch 3 Plätze verfügbar
+        <div class="pilot-progress pilot-progress-centered">
+          <div class="pilot-progress-header">
+            <span class="scarcity-dot"></span>
+            <span>Pilot-Plätze: <strong>1 von 3 vergeben</strong></span>
+          </div>
+          <div class="pilot-bar"><div class="pilot-bar-fill" style="width:33%"></div></div>
         </div>
-        <h2>Bereit dein Business zu automatisieren?</h2>
-        <p>30 Minuten. Kostenlos. Keine Verpflichtung.<br />Wir zeigen dir konkret was für dein Business möglich ist — und du bekommst 3 sofort umsetzbare Tipps mit auf den Weg.</p>
-        <a href="mailto:seymen.pasa.d@gmail.com" class="btn btn-primary btn-lg">Jetzt Erstgespräch anfragen →</a>
+        <h2>Jede Stunde Wartezeit<br class="br-desktop"> kostet dich Kunden.</h2>
+        <p class="cta-tagline">30 Minuten. Kostenlos. Keine Verpflichtung.</p>
+        <button class="btn btn-primary btn-lg btn-glow open-form">30-Min. Analyse buchen — kostenlos →</button>
+        <p class="risk-note">Im Gespräch bekommst du mindestens 3 konkrete Ideen — auch wenn du danach nicht buchst.</p>
         <div class="cta-trust">
-          <div class="stars">★★★★★</div>
-          <span>4.9 von 5 Sternen · Google</span>
+          <span>Erstgespräch kostenlos · Kein Spam · System gehört dir</span>
         </div>
-        <p class="cta-sub">Oder direkt schreiben: <a href="mailto:seymen.pasa.d@gmail.com">seymen.pasa.d@gmail.com</a></p>
+        <div class="cta-wa">
+          <span class="cta-wa-or">oder</span>
+          <a href="https://wa.me/49XXXXXXXXX" class="cta-wa-link" target="_blank" rel="noopener">
+            <span class="cta-wa-icon">💬</span> Direkt auf WhatsApp schreiben →
+          </a>
+          <span class="cta-wa-note"><!-- Platzhalter: wa.me/49DEINENUMMER einfügen --></span>
+        </div>
       </div>
     </div>
   </section>
@@ -486,11 +777,17 @@
         <div class="footer-brand">
           <a href="#" class="logo">Gr<span class="logo-ai">AI</span>t Systems</a>
           <p>Systeme die arbeiten.<br />Ergebnisse die zählen.</p>
+          <div class="footer-tech">
+            <span class="tech-label">Gebaut mit</span>
+            <span class="tech-badge">Claude API</span>
+            <span class="tech-badge">n8n</span>
+            <span class="tech-badge">Railway</span>
+          </div>
         </div>
         <div class="footer-links">
           <h4>Navigation</h4>
-          <a href="#leistungen">Leistungen</a>
-          <a href="#ergebnisse">Ergebnisse</a>
+          <a href="#module">Module</a>
+          <a href="#ergebnisse">Referenzen</a>
           <a href="#prozess">Prozess</a>
           <a href="#faq">FAQ</a>
           <a href="#kontakt">Kontakt</a>
@@ -498,15 +795,166 @@
         <div class="footer-links">
           <h4>Kontakt</h4>
           <a href="mailto:seymen.pasa.d@gmail.com">seymen.pasa.d@gmail.com</a>
-          <a href="https://instagram.com/graitsystems" target="_blank">@graitsystems</a>
+          <a href="https://instagram.com/graitsystems" target="_blank" rel="noopener">@graitsystems</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 GrAIt Systems — Alle Rechte vorbehalten</p>
-        <div class="footer-legal"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+        <div class="footer-legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
       </div>
     </div>
   </footer>
+
+  <!-- STICKY SCROLL BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <div class="sticky-bar-inner">
+      <span class="sticky-bar-text">Bereit dein Business zu automatisieren?</span>
+      <a href="#kontakt" class="btn btn-primary open-form sticky-bar-btn">30-Min. Analyse buchen →</a>
+      <button class="sticky-bar-close" id="stickyBarClose" aria-label="Schließen">✕</button>
+    </div>
+  </div>
+
+  <!-- LEAD FORM MODAL -->
+  <div class="modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-label="Anfrage-Formular">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Schließen">✕</button>
+      <div id="leadFormContainer">
+        <div class="modal-header">
+          <div class="modal-badge"><span class="scarcity-dot"></span>Nur noch 3 Pilot-Plätze verfügbar</div>
+          <h3 class="modal-title">Kostenlose Analyse</h3>
+          <p class="modal-sub">2 Minuten · Kein Spam · Keine Verpflichtung</p>
+        </div>
+        <div class="form-progress">
+          <div class="progress-step active" id="pStep1">1</div>
+          <div class="progress-line" id="pLine1"></div>
+          <div class="progress-step" id="pStep2">2</div>
+          <div class="progress-line" id="pLine2"></div>
+          <div class="progress-step" id="pStep3">3</div>
+        </div>
+        <form id="leadForm" novalidate>
+          <div class="form-step active" data-step="1">
+            <div class="form-step-title">Schritt 1 — Kontaktdaten</div>
+            <div class="form-step-sub">Wie können wir dich erreichen?</div>
+            <div class="form-field">
+              <label class="form-label" for="f-name">Vor- und Nachname *</label>
+              <input class="form-input" id="f-name" name="name" type="text" placeholder="Max Mustermann" autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-email">E-Mail-Adresse *</label>
+              <input class="form-input" id="f-email" name="email" type="email" placeholder="max@example.de" autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-firma">Unternehmensname *</label>
+              <input class="form-input" id="f-firma" name="unternehmen" type="text" placeholder="Mustermann Immobilien" autocomplete="organization" />
+            </div>
+            <div class="form-error-msg" id="err1"></div>
+            <div class="form-nav"><button type="button" class="btn-next" data-next="2">Weiter →</button></div>
+          </div>
+          <div class="form-step" data-step="2">
+            <div class="form-step-title">Schritt 2 — Dein Business</div>
+            <div class="form-step-sub">Damit wir dich besser verstehen.</div>
+            <div class="form-field">
+              <label class="form-label" for="f-branche">In welcher Branche arbeitest du? *</label>
+              <select class="form-select" id="f-branche" name="branche">
+                <option value="">— Bitte wählen —</option>
+                <option value="Immobilienmakler">Immobilienmakler</option>
+                <option value="Gesundheitspraxis">Gesundheitspraxis (Physio, Osteo, …)</option>
+                <option value="E-Commerce">E-Commerce / Online-Shop</option>
+                <option value="Gastronomie">Restaurant / Café / Bar</option>
+                <option value="Coaching / Beratung">Coaching / Beratung</option>
+                <option value="Handwerk / Gewerbe">Handwerk / Gewerbe</option>
+                <option value="Anderes">Anderes</option>
+              </select>
+              <div class="other-field" id="otherBrancheField">
+                <input class="form-input" id="f-branche-other" name="branche_other" type="text" placeholder="Welche Branche?" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="f-zeitfresser">Was frisst dir täglich die meiste Zeit? *</label>
+              <select class="form-select" id="f-zeitfresser" name="zeitfresser">
+                <option value="">— Bitte wählen —</option>
+                <option value="Lead-Bearbeitung & Anfragen">Lead-Bearbeitung &amp; Anfragen</option>
+                <option value="Kundenkorrespondenz & E-Mails">Kundenkorrespondenz &amp; E-Mails</option>
+                <option value="Dokumentation & Verwaltung">Dokumentation &amp; Verwaltung</option>
+                <option value="Content & Social Media">Content &amp; Social Media</option>
+                <option value="Terminplanung & Koordination">Terminplanung &amp; Koordination</option>
+                <option value="Etwas anderes">Etwas anderes</option>
+              </select>
+              <div class="other-field" id="otherZeitfresserField">
+                <input class="form-input" id="f-zeitfresser-other" name="zeitfresser_other" type="text" placeholder="Was genau?" />
+              </div>
+            </div>
+            <div class="form-error-msg" id="err2"></div>
+            <div class="form-nav">
+              <button type="button" class="btn-back" data-prev="1">← Zurück</button>
+              <button type="button" class="btn-next" data-next="3">Weiter →</button>
+            </div>
+          </div>
+          <div class="form-step" data-step="3">
+            <div class="form-step-title">Schritt 3 — Kurze Einschätzung</div>
+            <div class="form-step-sub">4 schnelle Fragen — alle anklicken.</div>
+            <div class="form-field">
+              <div class="form-label">Wie viele Stunden verlierst du damit pro Woche?</div>
+              <div class="radio-grid radio-grid-2">
+                <div class="radio-pill"><input type="radio" name="stunden" id="s1" value="Unter 2 Stunden"><label for="s1">Unter 2h</label></div>
+                <div class="radio-pill"><input type="radio" name="stunden" id="s2" value="2–5 Stunden"><label for="s2">2–5h</label></div>
+                <div class="radio-pill"><input type="radio" name="stunden" id="s3" value="5–10 Stunden"><label for="s3">5–10h</label></div>
+                <div class="radio-pill"><input type="radio" name="stunden" id="s4" value="Über 10 Stunden"><label for="s4">10h+</label></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <div class="form-label">Was kommt in deinem Betrieb ungefähr pro Monat rein?</div>
+              <div class="radio-grid radio-grid-2">
+                <div class="radio-pill"><input type="radio" name="umsatz" id="u1" value="Unter 3.000 €"><label for="u1">Unter 3.000 €</label></div>
+                <div class="radio-pill"><input type="radio" name="umsatz" id="u2" value="3.000–8.000 €"><label for="u2">3.000–8.000 €</label></div>
+                <div class="radio-pill"><input type="radio" name="umsatz" id="u3" value="8.000–20.000 €"><label for="u3">8.000–20.000 €</label></div>
+                <div class="radio-pill"><input type="radio" name="umsatz" id="u4" value="Über 20.000 €"><label for="u4">Über 20.000 €</label></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <div class="form-label">Kannst du diese Investition selbst entscheiden?</div>
+              <div class="radio-grid radio-grid-2">
+                <div class="radio-pill"><input type="radio" name="entscheider" id="e1" value="Ja, alleine"><label for="e1">Ja, alleine</label></div>
+                <div class="radio-pill"><input type="radio" name="entscheider" id="e2" value="Ja, mit Partner/in"><label for="e2">Mit Partner/in</label></div>
+                <div class="radio-pill"><input type="radio" name="entscheider" id="e3" value="Muss erst absprechen"><label for="e3">Muss absprechen</label></div>
+                <div class="radio-pill"><input type="radio" name="entscheider" id="e4" value="Nein"><label for="e4">Nein</label></div>
+              </div>
+            </div>
+            <div class="form-field">
+              <div class="form-label">Wie dringend ist dieses Problem für dich?</div>
+              <div class="radio-grid radio-grid-2">
+                <div class="radio-pill"><input type="radio" name="dringlichkeit" id="d1" value="Sofort — kostet mich täglich Zeit/Geld"><label for="d1">Sofort</label></div>
+                <div class="radio-pill"><input type="radio" name="dringlichkeit" id="d2" value="In den nächsten 1–3 Monaten"><label for="d2">1–3 Monate</label></div>
+                <div class="radio-pill"><input type="radio" name="dringlichkeit" id="d3" value="Kein konkreter Zeitplan"><label for="d3">Kein Plan</label></div>
+                <div class="radio-pill"><input type="radio" name="dringlichkeit" id="d4" value="Nur informieren"><label for="d4">Info sammeln</label></div>
+              </div>
+            </div>
+            <div class="form-error-msg" id="err3"></div>
+            <div class="form-nav">
+              <button type="button" class="btn-back" data-prev="2">← Zurück</button>
+              <button type="submit" class="btn-next" id="submitBtn">Anfrage senden →</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="form-success-state" id="formSuccess">
+        <div class="success-check">✓</div>
+        <h3>Anfrage erhalten!</h3>
+        <p>Wir melden uns innerhalb von 24 Stunden bei dir.<br />Schau auch in deinen Spam-Ordner.</p>
+      </div>
+      <div class="modal-wa-alt">
+        <span>Lieber direkt schreiben?</span>
+        <a href="https://wa.me/49XXXXXXXXX" target="_blank" rel="noopener">WhatsApp →</a>
+        <!-- Platzhalter: Nummer einfügen -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toastEl"></div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Nach oben">↑</button>
 
   <script src="script.js"></script>
 </body>
