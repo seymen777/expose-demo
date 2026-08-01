@@ -69,7 +69,7 @@
     try {
       const res = await fetch('https://n8n-production-608e.up.railway.app/webhook/website-analyse', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-GrAIt-Secret': 'grait2026secret' },
         body: JSON.stringify({ url: normalized, email })
       });
 
@@ -406,7 +406,7 @@ if (leadForm) {
     try {
       const res = await fetch('https://n8n-production-608e.up.railway.app/webhook/graait-lead', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-GrAIt-Secret': 'grait2026secret' },
         body: JSON.stringify(payload)
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -577,7 +577,7 @@ if (leadForm) {
     try {
       const res = await fetch('https://n8n-production-608e.up.railway.app/webhook/expose-generator', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-GrAIt-Secret': 'grait2026secret' },
         body: JSON.stringify(payload),
       });
 
